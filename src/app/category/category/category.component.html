@@ -1,0 +1,29 @@
+
+<div class="container">
+	<div class="row" id="ads">
+    <!-- Category Card -->
+
+    <div class="col-md-4" *ngFor='let cat of category'>
+        <div class="card rounded">
+            <div class="card-image">
+                <span class="card-notify-badge">{{cat.categoryName}}</span>
+                <span class="card-notify-year">latest</span>
+                <img class="img-fluid" src="{{'data:image/jpeg;base64,' +cat.categoryImage.data}}" alt="Alternate Text" />
+            </div>
+            <div class="card-image-overlay m-auto">
+                <span class="card-detail-badge">price-range</span>
+                <span class="card-detail-badge">$28</span>
+                <span class="card-detail-badge">$100</span>
+            </div>
+            <div class="card-body text-center">
+                <div class="ad-title m-auto">
+                    <h5>{{cat.categoryDescription}}</h5>
+                </div>
+                <a class="ad-btn" (click)="prodComp.getProductByCategory(cat.id)">View</a>
+                <button *ngIf='cat.id' class="btn btn-danger" (click)="deleteCategory(cat.id)">Delete</button>
+                <button class="btn btn-danger" routerLink="/editCategory/{{cat.id}}">Edit</button>
+            </div>
+        </div>
+    </div>
+</div>
+    

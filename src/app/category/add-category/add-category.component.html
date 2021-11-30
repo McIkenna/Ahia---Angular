@@ -1,0 +1,45 @@
+<div class="container-md">
+<form class="row g-3" (ngSubmit)="saveCategory()">
+    <div class="text-center">
+    <img [src]="imagePreview"  height="200" alt="...">
+</div>
+        <div class="col-12">
+         <input 
+        type="file"  id="inputGroupFile01"
+        (change)="handleImage($event)">
+      </div>
+      <div class="col-12">
+        <label for="inputAddress" class="form-label">category Id</label>
+        <input type="text" 
+        class="form-control" 
+        id="inputAddress" 
+        placeholder="Category Id"
+        name="id"
+        [(ngModel)]="category.id"
+        disabled
+        >
+      </div>
+    <div class="col-12">
+      <label for="inputAddress" class="form-label">category Name</label>
+      <input type="text" 
+      class="form-control" 
+      id="inputAddress" 
+      placeholder="Category Name"
+      name="categoryName"
+      [(ngModel)]="category.categoryName"
+      >
+    </div>
+    <div class="col-12">
+      <label  class="form-label">categoryDescription</label>
+      <textarea type="text" 
+      class="input-group"
+      id="inputAddress2" 
+      placeholder="Category Description"
+      name="categoryName"
+      [(ngModel)]="category.categoryDescription"></textarea>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Submit</button>
+       </div>
+  </form>
+</div>

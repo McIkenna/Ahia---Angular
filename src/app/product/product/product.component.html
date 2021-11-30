@@ -1,0 +1,25 @@
+
+<div class="container" style="margin-top:50px;">
+    <div class="row">
+      <div class="col-md-3" *ngFor='let prod of product'>
+       
+            <div class="card-sl">
+                <div class="card-image">
+                    <img
+                        src="{{'data:image/jpeg;base64,' +prod.mainImage.data}}"  (click)="selectProduct(prod.id)"/>
+                </div>
+                <a class="card-action" href="#"><fa-icon [icon]="faHeart"></fa-icon></a>
+                <div class="card-heading">
+                    {{prod.productName}}
+                </div>
+                <div class="card-text">
+                    {{prod.productSummary?.substr(0, 60)}} ...
+                </div>
+                <div class="card-text">
+                    ${{prod.price}}
+                </div>
+                 <a href="#" class="card-button"><fa-icon [icon]="faShoppingCart"></fa-icon> Add To Cart</a>
+            </div>
+        
+        </div>
+    </div>  
