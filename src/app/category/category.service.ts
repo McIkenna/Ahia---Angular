@@ -17,9 +17,11 @@ export class CategoryService {
   getAllCategory() : Observable<Category[]>{
     return this._http.get<Category[]>(`${this.cat_url}/all`);
   }
+  
   saveCategory(category: FormData){
   return this._http.post(`${this.cat_url}`, category)
   }
+
   deleteCategory(id: string): Observable<any>{
     return this._http.delete(`${this.cat_url}/${id}`, {responseType: 'text'});
   }

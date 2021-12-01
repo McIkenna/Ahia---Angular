@@ -19,6 +19,12 @@
                     ${{prod.price}}
                 </div>
                  <a href="#" class="card-button"><fa-icon [icon]="faShoppingCart"></fa-icon> Add To Cart</a>
+                 <div class="col-md-6">
+                    <button *ngIf="prod.id" (click)="deleteProduct(prod.id)" type="submit" class="btn btn-outline-danger">Delete</button>
+                </div>
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-outline-secondary" [routerLink]="['/editProduct', prod.categoryId, prod.id]">Edit</button>
+                </div>
             </div>
         
         </div>

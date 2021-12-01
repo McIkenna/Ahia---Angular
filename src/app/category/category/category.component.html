@@ -19,9 +19,10 @@
                 <div class="ad-title m-auto">
                     <h5>{{cat.categoryDescription}}</h5>
                 </div>
-                <a class="ad-btn" (click)="prodComp.getProductByCategory(cat.id)">View</a>
+                <a class="ad-btn" routerLink="/category/{{cat.id}}">View</a>
                 <button *ngIf='cat.id' class="btn btn-danger" (click)="deleteCategory(cat.id)">Delete</button>
-                <button class="btn btn-danger" routerLink="/editCategory/{{cat.id}}">Edit</button>
+                <button class="btn btn-outline-primary" routerLink="/editCategory/{{cat.id}}">Edit</button>
+                <button class="btn btn-outline-secondary" routerLink="/addProduct/{{cat.id}}">Add Product</button>
             </div>
         </div>
     </div>

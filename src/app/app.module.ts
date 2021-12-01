@@ -15,9 +15,9 @@ import { CartComponent } from './cart/cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout/checkout.component'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { OrderComponent } from './order/order/order.component';
-import { ProductCategoryComponent } from './product/product-category/product-category.component';
 import { FormsModule } from '@angular/forms';
 import { AddCategoryComponent } from './category/add-category/add-category.component';
+import { AddProductComponent } from './product/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -30,9 +30,8 @@ import { AddCategoryComponent } from './category/add-category/add-category.compo
     CheckoutComponent,
     ProductComponent,
     ProductDetailComponent,
-    ProductCategoryComponent,
-    OrderComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

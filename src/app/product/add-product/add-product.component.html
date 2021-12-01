@@ -1,0 +1,138 @@
+<div class="container-md">
+    <form class="row g-3" (ngSubmit)="saveProduct()">   
+    <div class="col-md-12 placeholder">
+    <img [src]= "mainImagePreview"  height="400">
+    </div>
+    <div class="col-md-3 placeholder">
+        <img [src]="extraImagePreview[0]"  height="400">
+    </div>
+    <div class="col-md-3 placeholder">
+        <img [src]="extraImagePreview[1]"  height="400">
+    </div>
+    <div class="col-md-3 placeholder">
+        <img [src]="extraImagePreview[2]"  height="400">
+    </div>
+    <div class="col-md-3 placeholder">
+        <img [src]="extraImagePreview[3]"  height="400">
+    </div>
+  
+    <div class="col-md-6">
+    <input 
+    type="file"  id="inputGroupFile01"
+    (change)="onChangeMain($event)">
+    </div>
+    <div class="col-md-6">
+    <input 
+    type="file"  id="formFileMultiple"
+    (change)="onSelectExtras($event)" multiple>
+    </div>
+    <div class="col-md-6">
+            <label for="inputAddress" class="form-label">Product Id</label>
+            <input type="text" 
+            class="form-control" 
+            id="inputAddress" 
+            placeholder="Product Id"
+            name="id"
+            [(ngModel)]="product.id"
+            disabled
+            >
+          </div>
+          <div class="col-md-6">
+            <label for="inputAddress" class="form-label">Category Id</label>
+            <input type="text" 
+            class="form-control" 
+            id="inputAddress" 
+            placeholder="Category Id"
+            name="categoryId"
+            [(ngModel)]="categoryId"
+            disabled
+            >
+          </div>
+          <div class="col-md-4">
+            <label for="inputAddress" class="form-label">Brand</label>
+            <input type="text" 
+            class="form-control" 
+            id="inputAddress" 
+            placeholder="Brand"
+            name="brand"
+            [(ngModel)]="product.brand"
+            >
+          </div>
+          <div class="col-md-6">
+            <label for="inputState" class="form-label">Item Size</label>
+            <select id="inputState" class="form-select" [(ngModel)]="selectedItem" name="itemSize">
+              <option  *ngFor="let size of itemSize" [ngValue]="size">{{size}}</option>
+            </select>
+          </div>
+          <div class="col-md-12">
+            <label for="inputAddress" class="form-label">Product Name</label>
+            <input type="text" 
+            class="form-control" 
+            id="inputAddress" 
+            placeholder="Product Name"
+            name="productName"
+            [(ngModel)]="product.productName"
+            >
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">product Summary</label>
+            <textarea type="text" 
+            class="form-control" 
+            id="inputAddress" 
+            placeholder="product Summary"
+            name="productSummary"
+            [(ngModel)]="product.productSummary"
+            ></textarea>    
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">product Description</label>
+            <textarea type="text" 
+            class="form-control" 
+            id="inputAddress" 
+            placeholder="product Description"
+            name="productDescription"
+            [(ngModel)]="product.productDescription"
+            ></textarea>
+          </div>
+        <div class="col-md-3">
+            <label for="inputAddress" class="form-label">price</label>
+            <input type="text" 
+            class="form-control" 
+            id="inputAddress" 
+            placeholder="price"
+            name="price"
+            [(ngModel)]="product.price"
+            >
+          </div>
+        <div class="col-md-3">
+          <label  class="form-label">count In Stock</label>
+          <input type="text" 
+          class="input-group"
+          id="inputAddress2" 
+          placeholder="countInStock"
+          name="countInStock"
+          [(ngModel)]="product.countInStock">
+        </div>
+        <div class="col-md-3">
+            <label  class="form-label">rating</label>
+            <input type="text" 
+            class="input-group"
+            id="inputAddress2" 
+            placeholder="rating"
+            name="rating"
+            [(ngModel)]="product.rating">
+          </div>
+          <div class="col-md-3">
+            <label  class="form-label">numOfReviews</label>
+            <input type="text" 
+            class="input-group"
+            id="inputAddress2" 
+            placeholder="rating"
+            name="rating"
+            [(ngModel)]="product.numOfReviews">
+          </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit</button>
+           </div>
+      </form>
+    </div>

@@ -1,4 +1,4 @@
-export interface Product {
+export class Product {
     id: string;
     brand : string;
     categoryId: string;
@@ -7,10 +7,26 @@ export interface Product {
     productDescription: string;
     itemSize : string;
     mainImage : any;
-     //List<Binary> extraImages = new ArrayList<>();
-    price : number;
-    countInStock : number;
-    rating : number;
-    numOfReviews : number;
-    //dateCreated? : Date;
+    extraImages: [];
+    price : any;
+    countInStock : any;
+    rating : any;
+    numOfReviews : any;
+    //dateCreated : Date;
+
+    constructor(){
+        this.id = "",
+        this.brand = "",
+        this.categoryId = "",
+        this.productName = "",
+        this.productSummary = "",
+        this.productDescription = "",
+        this.itemSize = "",
+        this.mainImage = [],
+        this.extraImages = [],
+        this.price = null,
+        this.countInStock = null,
+        this.rating = null,
+        this.numOfReviews = null
+    }
 }

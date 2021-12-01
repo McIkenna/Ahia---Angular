@@ -2,15 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductDetailComponent } from 'src/app/product-detail/product-detail/product-detail.component';
 import { Product } from 'src/app/product/product';
-import { ProductCategoryComponent } from 'src/app/product/product-category/product-category.component';
 import { Category } from '../category';
 import { CategoryService } from '../category.service';
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css'],
-  providers: [ProductCategoryComponent]
+  styleUrls: ['./category.component.css']
   
 })
 export class CategoryComponent implements OnInit {
@@ -20,7 +18,7 @@ export class CategoryComponent implements OnInit {
 
   filteredProducts: Product[] = [];
 
-  constructor(private categoryService : CategoryService, public prodComp: ProductCategoryComponent, private router : Router) { 
+  constructor(private categoryService : CategoryService, private router : Router) { 
   
   }
 

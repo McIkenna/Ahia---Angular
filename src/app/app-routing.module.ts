@@ -4,8 +4,9 @@ import { HomeComponent } from './home/home/home.component';
 import { ProductDetailComponent } from './product-detail/product-detail/product-detail.component';
 import { CartComponent } from './cart/cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout/checkout.component';
-import { ProductCategoryComponent } from './product/product-category/product-category.component';
 import { AddCategoryComponent } from './category/add-category/add-category.component';
+import { ProductComponent } from './product/product/product.component';
+import { AddProductComponent } from './product/add-product/add-product.component';
 
 
 const routes: Routes = [
@@ -17,13 +18,19 @@ const routes: Routes = [
     path: 'addCategory', component: AddCategoryComponent
   },
   {
-    path: 'editCategory/:id', component: AddCategoryComponent
+    path: 'editCategory/:catId', component: AddCategoryComponent
   },
   {
-    path: 'product/:id', component: ProductDetailComponent
+    path: 'product/:prodId', component: ProductDetailComponent
   },
   {
-    path: 'category/:id', component: ProductCategoryComponent
+    path: 'addProduct/:catId', component: AddProductComponent
+  },
+  {
+    path: 'editProduct/:catId/:prodId', component: AddProductComponent
+  },
+  {
+    path: 'category/:id', component: ProductComponent
   },
   {
     path: 'cart', component: CartComponent

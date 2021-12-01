@@ -20,14 +20,22 @@ export class AddCategoryComponent implements OnInit {
 
   ngOnInit(): void {
     
-    const isPresent = this._activatedRoute.snapshot.paramMap.has('id');
-    if(isPresent){
-      const id:string = this._activatedRoute.snapshot.paramMap.get('id') || "";
-      this.categoryService.getbyCategoryId(id).subscribe(
+    this._activatedRoute.paramMap.subscribe(
+      params => {
+        const id = params.get('catId') || " ";
+        this.categoryService.getbyCategoryId(id).subscribe(
         data => this.category = data
-      )
-    }
-  }
+      
+    )
+    // const isPresent = this._activatedRoute.snapshot.paramMap.has('id');
+    // if(isPresent){
+    //   const id:string = this._activatedRoute.snapshot.paramMap.get('id') || "";
+    //   this.categoryService.getbyCategoryId(id).subscribe(
+    //     data => this.category = data
+    //   )
+    // }
+  })
+}
 
   saveCategory(){
     const uploadFile = new FormData();
