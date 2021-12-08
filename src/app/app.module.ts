@@ -18,6 +18,9 @@ import { OrderComponent } from './order/order/order.component';
 import { FormsModule } from '@angular/forms';
 import { AddCategoryComponent } from './category/add-category/add-category.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
+import { RatingComponent } from './product/rating/rating.component';
+import { CartItemComponent } from './cart/cart-item/cart-item.component';
+import { WishlistComponent } from './wishlist/wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { AddProductComponent } from './product/add-product/add-product.component
     ProductComponent,
     ProductDetailComponent,
     AddCategoryComponent,
-    AddProductComponent
+    AddProductComponent,
+    RatingComponent,
+    CartItemComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,

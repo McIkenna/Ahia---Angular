@@ -21,9 +21,6 @@ const routes: Routes = [
     path: 'editCategory/:catId', component: AddCategoryComponent
   },
   {
-    path: 'product/:prodId', component: ProductDetailComponent
-  },
-  {
     path: 'addProduct/:catId', component: AddProductComponent
   },
   {
@@ -31,6 +28,9 @@ const routes: Routes = [
   },
   {
     path: 'category/:id', component: ProductComponent
+  },
+  {
+    path: 'product/:prodId', component: ProductDetailComponent
   },
   {
     path: 'cart', component: CartComponent

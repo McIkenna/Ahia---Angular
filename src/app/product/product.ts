@@ -1,11 +1,12 @@
 export class Product {
     id: string;
-    brand : string;
+    brand: string;
     categoryId: string;
+    categoryName: string;
     productName: string;
-    productSummary : string;
+    productSummary: string;
     productDescription: string;
-    itemSize : string;
+    itemSize: string;
     mainImage : any;
     extraImages: [];
     price : any;
@@ -18,6 +19,7 @@ export class Product {
         this.id = "",
         this.brand = "",
         this.categoryId = "",
+        this.categoryName = "",
         this.productName = "",
         this.productSummary = "",
         this.productDescription = "",

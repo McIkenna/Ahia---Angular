@@ -1,1 +1,15 @@
-<p>cart works!</p>
+<div *ngIf="cartItems.length === 0" class="alert-alert-info">
+    The Cart is Empty
+</div>
+<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><fa-icon [icon]="faCartPlus"></fa-icon><sup class="text-primary">({{totalQuantity}})</sup> Cart</a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+<ul *ngIf="cartItems.length > 0" class='list-group'>
+    <li class='list-group-item' *ngFor="let item of cartItems">
+        <app-cart-item [cartItem]="item"></app-cart-item>
+    </li>
+    <li class="list-group-item active">
+        <p><strong>Total</strong> {{cartTotal | currency :"USD"}}</p>
+    </li>
+</ul>
+</div>
+</li>

@@ -8,7 +8,11 @@
                     <img
                         src="{{'data:image/jpeg;base64,' +prod.mainImage.data}}"  (click)="selectProduct(prod.id)"/>
                 </div>
-                <a class="card-action" href="#"><fa-icon [icon]="faHeart"></fa-icon></a>
+                <a class="card-action" >
+                    <fa-icon class="isAddToWishList"  [icon]="faHeart" *ngIf="addedToWishList" (click)="removeFromWishList(prod.id)"></fa-icon>
+                    <fa-icon class="notAddToWishList" [icon]="faHeart" *ngIf="!addedToWishList" (click)="addToWishList(prod.id)"></fa-icon>
+                </a>
+               
                 <div class="card-heading">
                     {{prod.productName}}
                 </div>
@@ -18,11 +22,11 @@
                 <div class="card-text">
                     ${{prod.price}}
                 </div>
-                 <a href="#" class="card-button"><fa-icon [icon]="faShoppingCart"></fa-icon> Add To Cart</a>
-                 <div class="col-md-6">
+                 <button *ngIf="prod.id" class="card-button" (click)="addToCartHandler(prod.id)"><fa-icon [icon]="faShoppingCart"></fa-icon> Add To Cart</button>
+                 <div class="col-md-4">
                     <button *ngIf="prod.id" (click)="deleteProduct(prod.id)" type="submit" class="btn btn-outline-danger">Delete</button>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <button type="submit" class="btn btn-outline-secondary" [routerLink]="['/editProduct', prod.categoryId, prod.id]">Edit</button>
                 </div>
             </div>

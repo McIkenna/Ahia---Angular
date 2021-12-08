@@ -18,6 +18,7 @@ a {
     height: 200px;
     max-width: 100%;
     border-radius: 8px 8px 0px 0;
+    cursor: pointer;
 }
 
 .card-action {
@@ -26,18 +27,32 @@ a {
     margin-top: -25px;
     margin-right: 20px;
     z-index: 2;
-    color: #E26D5C;
-    background: #fff;
     border-radius: 100%;
-    padding: 15px;
+    padding: 5px;
     font-size: 15px;
+    background-color: #1F487E;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card-action:hover {
-    color: #fff;
-    background: #E26D5C;
     -webkit-animation: pulse 1.5s infinite;
+    cursor: pointer;
+}
+
+.isAddToWishList{
+    color: #E26D5C;
+}
+
+.isAddToWishList:hover{
+    color: #fff;
+}
+
+.notAddToWishList{
+    color: #fff;
+}
+
+.notAddToWishList:hover{
+    color: #E26D5C;
 }
 
 .card-heading {
@@ -70,6 +85,7 @@ a {
     text-decoration: none;
     background-color: #1D3461;
     color: #fff;
+    cursor: pointer;
 
 }
 

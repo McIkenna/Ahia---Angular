@@ -1,22 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
+import { MessengerService } from '../messenger.service';
+import { CartService } from 'src/app/cart/cart.service';
+import { CartItem } from 'src/app/cart/cart-item';
+import { WishlistService } from 'src/app/wishlist/wishlist.service';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent implements OnInit {
 
+export class ProductComponent implements OnInit {
   faShoppingCart = faShoppingCart;
   faHeart = faHeart;
   product: Product[] = [];
   _product : Product = new Product();
+  addedToWishList : boolean = false;
+
   
-  constructor(private productService: ProductService, private route : Router, private _activatedRoute: ActivatedRoute) { }
+  
+  constructor(private productService: ProductService, private route : Router, private _activatedRoute: ActivatedRoute,
+    private _msg : MessengerService, private _cartSvc: CartService, private wishlistService : WishlistService) { }
 
   ngOnInit(): void {
    
@@ -31,7 +39,7 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  private getProducts(){
+  getProducts(){
     this.productService.getAllProducts().subscribe(data => {this.product = data})
   }
 
@@ -48,5 +56,37 @@ export class ProductComponent implements OnInit {
       this.getProducts()
     })
   }
-  
+
+  addToCartHandler(id: string){
+    this.productService.getSingleProduct(id).subscribe( data => {
+      this._cartSvc.addProductToCart(data).subscribe(() => {})
+      //localStorage.setItem('cart-items', JSON.stringify(data))
+     //this._msg.sendMsg(data)
+      window.location.reload();
+      //this.addingCartToLocal(data);
+   
+    }); 
+    }
+    // addingCartToLocal(cartItem:any){
+    //   let cartItems: any = [];
+    //   if(localStorage.getItem('cart-items')){
+    //     cartItems = JSON.parse(localStorage.getItem('cart-items') || '[]')
+    //     cartItems = [cartItem, ...cartItems]
+    //   }else{
+    //     cartItems = [cartItem];
+    //   }
+    //   localStorage.setItem('cart-items', JSON.stringify(cartItems))
+    // }
+
+    addToWishList(id: string){
+      console.log(id);
+      this.wishlistService.addToWishlist(id).subscribe(() => {
+          this.addedToWishList = true;
+      })
+    }
+    removeFromWishList(id: string){
+      this.wishlistService.removeFromWishlist(id).subscribe(() => {
+        this.addedToWishList = false;
+      })
+    }
 }

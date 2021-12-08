@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductDetailComponent } from 'src/app/product-detail/product-detail/product-detail.component';
 import { Product } from 'src/app/product/product';
 import { Category } from '../category';
 import { CategoryService } from '../category.service';
@@ -9,7 +8,6 @@ import { CategoryService } from '../category.service';
   selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
-  
 })
 export class CategoryComponent implements OnInit {
 
@@ -32,7 +30,7 @@ export class CategoryComponent implements OnInit {
 
   deleteCategory(id:string){
     this.categoryService.deleteCategory(id).subscribe(() => {
-      this.getCategorys()
+      this.getCategorys();
     });
   }
 }

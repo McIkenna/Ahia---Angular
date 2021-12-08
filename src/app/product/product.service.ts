@@ -35,6 +35,7 @@ export class ProductService {
     return this._http.delete(`${this.prod_url}/${id}`, {responseType: 'text'});
   }
 
+
   private handleError(err: HttpErrorResponse){
     let errorMessage = '';
     if(err.error instanceof ErrorEvent){

@@ -76,8 +76,6 @@ if(isprodId){
       reader.onload = event => this.mainImagePreview = reader.result;
       reader.readAsDataURL(file)
       this.mainFile = file
-
-      console.log(this.mainFile);
     }
   }
 
